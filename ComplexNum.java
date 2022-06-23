@@ -48,13 +48,13 @@ class ComplexNum {
 
     void printResult(ComplexNum arg) {
         if (arg.getPath1() == 0)
-            System.out.printf("%.1fi", arg.getPath2());
+            System.out.printf("Result: %.1fi", arg.getPath2());
         else if (arg.getPath2() == 0)
-            System.out.printf("%.1f", arg.getPath1());
+            System.out.printf("Result: %.1f", arg.getPath1());
         else if (arg.getPath2() > 0)
-            System.out.printf("%.1f + %.1fi", arg.getPath1(), arg.getPath2());
+            System.out.printf("Result: %.1f + %.1fi", arg.getPath1(), arg.getPath2());
         else if (arg.getPath2() < 0) {
-            System.out.printf("%.1f + (%.1fi)", arg.getPath1(), arg.getPath2());
+            System.out.printf("Result: %.1f + (%.1fi)", arg.getPath1(), arg.getPath2());
         }
 
     }

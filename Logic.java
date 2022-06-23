@@ -9,23 +9,19 @@ public class Logic {
 
         switch (inputRacio.action) {
             case "+":
-                System.out.printf("%.2f + %.2f = %.2f", inputRacio.racNum1, inputRacio.racNum2,
-                        inputRacio.racNum1 + inputRacio.racNum2);
+                System.out.printf("Result: %.2f", inputRacio.racNum1 + inputRacio.racNum2);
                 break;
 
             case "*":
-                System.out.printf("%.2f * %.2f = %.2f", inputRacio.racNum1, inputRacio.racNum2,
-                inputRacio.racNum1 * inputRacio.racNum2);
+                System.out.printf("Result: %.2f", inputRacio.racNum1 * inputRacio.racNum2);
                 break;
 
             case "-":
-                System.out.printf("%.2f - %.2f = %.2f", inputRacio.racNum1, inputRacio.racNum2,
-                inputRacio.racNum1 - inputRacio.racNum2);
+                System.out.printf("Result: %.2f", inputRacio.racNum1 - inputRacio.racNum2);
                 break;
 
             case "/":
-                System.out.printf("%.2f / %.2f = %.2f", inputRacio.racNum1, inputRacio.racNum2,
-                inputRacio.racNum1 / inputRacio.racNum2);
+                System.out.printf("Result: %.2f", inputRacio.racNum1 / inputRacio.racNum2);
                 break;
 
             default:
