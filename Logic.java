@@ -5,55 +5,53 @@
 
 public class Logic {
 
-    public static void logic(double x, double y, String b) {
+    public void logicRac(Input inputRacio) {
 
-        double resul;
-        switch (b) {
+        switch (inputRacio.action) {
             case "+":
-                resul = x + y;
-                System.out.printf("%.2f", resul);
+                System.out.printf("%.2f + %.2f = %.2f", inputRacio.racNum1, inputRacio.racNum2,
+                        inputRacio.racNum1 + inputRacio.racNum2);
                 break;
 
             case "*":
-                resul = x * y;
-                System.out.printf("%.2f", resul);
+                System.out.printf("%.2f * %.2f = %.2f", inputRacio.racNum1, inputRacio.racNum2,
+                inputRacio.racNum1 * inputRacio.racNum2);
                 break;
 
             case "-":
-                resul = x - y;
-                System.out.printf("%.2f", resul);
+                System.out.printf("%.2f - %.2f = %.2f", inputRacio.racNum1, inputRacio.racNum2,
+                inputRacio.racNum1 - inputRacio.racNum2);
                 break;
 
             case "/":
-                resul = x / y;
-                System.out.printf("%.2f", resul);
+                System.out.printf("%.2f / %.2f = %.2f", inputRacio.racNum1, inputRacio.racNum2,
+                inputRacio.racNum1 / inputRacio.racNum2);
                 break;
 
             default:
                 System.out.println("Не верные данные. Введите *,+,-,/");
                 break;
         }
-
     }
 
-    public static void logicSec(String swtc, ComplexNum num, ComplexNum num2) {
-        switch (swtc) {
+    public void logicSec(Input inputComplex) {
+        switch (inputComplex.action) {
             case "+": {
-                num.printResult(num.complexAdd(num2));
+                inputComplex.ComplxNum1.printResult(inputComplex.ComplxNum1.complexSum(inputComplex.ComplxNum2));
                 break;
             }
 
             case "-": {
-                num.printResult(num.complexReduce(num2));
+                inputComplex.ComplxNum1.printResult(inputComplex.ComplxNum1.complexDiff(inputComplex.ComplxNum2));
                 break;
             }
 
             case "*": {
-                num.printResult(num.complexMultiply(num2));
+                inputComplex.ComplxNum1.printResult(inputComplex.ComplxNum1.complexMultiply(inputComplex.ComplxNum2));
                 break;
             }
             case "/": {
-                num.printResult(num.complexDivide(num2));
+                inputComplex.ComplxNum1.printResult(inputComplex.ComplxNum1.complexDivide(inputComplex.ComplxNum2));
                 break;
             }
             default: {

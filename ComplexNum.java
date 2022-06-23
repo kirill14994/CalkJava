@@ -1,61 +1,62 @@
 class ComplexNum {
 
-    private double a;
-    private double b;
-    private ComplexNum result;
+    private double path1;
+    private double path2;
 
     ComplexNum(double a1, double b1) {
-        a = a1;
-        b = b1;
+        path1 = a1;
+        path2 = b1;
     }
 
+    public ComplexNum() {
+        super();
+    }
 
-    ComplexNum complexAdd(ComplexNum additive) {
-        a = a + additive.a;
-        b = b + additive.b;
+    ComplexNum complexSum(ComplexNum additive) {
+        path1 = path1 + additive.path1;
+        path2 = path2 + additive.path2;
         return this;
     }
 
-    ComplexNum complexReduce(ComplexNum reduction) {
-        a = a - reduction.a;
-        b = b - reduction.b;
+    ComplexNum complexDiff(ComplexNum reduction) {
+        path1 = path1 - reduction.path1;
+        path2 = path2 - reduction.path2;
         return this;
     }
 
     ComplexNum complexMultiply(ComplexNum multiplier) {
-        double buf = a;
-        a = a * multiplier.a - b * multiplier.b;
-        b = buf * multiplier.b + b * multiplier.a;
+        double buf = path1;
+        path1 = path1 * multiplier.path1 - path2 * multiplier.path2;
+        path2 = buf * multiplier.path2 + path2 * multiplier.path1;
         return this;
-    }
-
-    double module() {
-        return Math.sqrt(a * a + b * b);
     }
 
     ComplexNum complexDivide(ComplexNum divident) {
-        double m = (a * divident.a + b * divident.b)/(divident.a*divident.a+divident.b*divident.b);
-        b = (b*divident.a - a * divident.b)/(divident.a*divident.a+divident.b*divident.b);
-        a=m;
+        double m = (path1 * divident.path1 + path2 * divident.path2) / (divident.path1 * divident.path1 + divident.path2 * divident.path2);
+        path2 = (path2 * divident.path1 - path1 * divident.path2) / (divident.path1 * divident.path1 + divident.path2 * divident.path2);
+        path1 = m;
         return this;
     }
 
-
-    public double getA() {
-        return a;
+    public double getPath1() {
+        return path1;
     }
 
-    public double getB() {
-        return b;
-    }
-
-    public ComplexNum getResult() {
-        return result;
-
+    public double getPath2() {
+        return path2;
     }
 
     void printResult(ComplexNum arg) {
-        System.out.println(arg.getB() + "i " + "+ (" + arg.getA() + ")");
+        if (arg.getPath1() == 0)
+            System.out.printf("%.1fi", arg.getPath2());
+        else if (arg.getPath2() == 0)
+            System.out.printf("%.1f", arg.getPath1());
+        else if (arg.getPath2() > 0)
+            System.out.printf("%.1f + %.1fi", arg.getPath1(), arg.getPath2());
+        else if (arg.getPath2() < 0) {
+            System.out.printf("%.1f + (%.1fi)", arg.getPath1(), arg.getPath2());
+        }
+
     }
 
 }

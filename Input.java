@@ -1,43 +1,60 @@
 import java.util.Scanner;
 
 public class Input {
-    public double n1;
-    public double n2;
+    public double racNum1;
+    public double racNum2;
     public String action;
+    ComplexNum ComplxNum1 = new ComplexNum();
+    ComplexNum ComplxNum2 = new ComplexNum();
 
-    public Input(Double n1, Double n2, String action) {  // конструктор значений
-
-        this.n1 = n1;
-
-        this.n2 = n2;
-
+    public Input(String action, Double n1, Double n2) {
+        this.racNum1 = n1;
+        this.racNum2 = n2;
         this.action = action;
     }
 
-    public static Input inputRacio() {  //Вводим значения  и  знак выражения
+    public Input(String action, ComplexNum num1, ComplexNum num2) {
+        this.action = action;
+        this.ComplxNum1 = num1;
+        this.ComplxNum2 = num2;
+    }
 
-        Scanner in = new Scanner(System.in);
-        System.out.print("Число X: ");
-        Double n1 = in.nextDouble();
+    public Input() {
+        super();
+    }
 
-        System.out.print("Число Y: ");
-        Double n2 = in.nextDouble();
+    public Input inputRacio() {
+
+        Scanner inp = new Scanner(System.in);
+        System.out.print("Число 1: ");
+        Double racNum1 = inp.nextDouble();
+
+        System.out.print("Число 2: ");
+        Double racNum2 = inp.nextDouble();
 
         System.out.print("Действие (*,+,-,/): ");
-        String action = in.next();
+        String action = inp.next();
 
-        // System.out.printf("Вы ввели: %f \n", n1);
-        // System.out.printf("Вы ввели: %f \n", n2);
-        // System.out.printf("Вы ввели: %s \n", action);
+        inp.close();
 
-        in.close();
-
-        return new Input(n1, n2, action);
+        return new Input(action, racNum1, racNum2 );
 
     }
 
-    
+    public Input inputCompelx() {
+        Scanner inp = new Scanner(System.in);
+        System.out.println("Введите вещественную и мнимую часть 1-ого комплексного числа: ");
+        ComplexNum num1 = new ComplexNum(inp.nextDouble(), inp.nextDouble());
+        System.out.println("Действие (*,+,-,/): ");
+        String action = inp.next();
 
+        
 
-    
+        System.out.println("Введите вещественную и мнимую часть 2-ого комплексного числа: ");
+        ComplexNum num2 = new ComplexNum(inp.nextDouble(), inp.nextDouble());
+        inp.close();
+
+        return new Input(action, num1, num2);
+    }
+
 }
